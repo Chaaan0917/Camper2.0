@@ -31,3 +31,62 @@
 // ==/UserScript==
 
 
+// SPEEDUP WORK.INK.
+if (window.location.hostname.includes('work.ink')) {
+(function() {
+  'use strict';
+
+  // --- SPEEDUP SETUP ---
+  let speedupActive = false;
+
+  // Save originals
+  const realSetTimeout = window.setTimeout;
+  const realSetInterval = window.setInterval;
+
+  function enableSpeedup() {
+    if (speedupActive) return;
+    speedupActive = true;
+
+    window.setTimeout = function(fn, delay, ...args) {
+      return realSetTimeout(fn, delay / 10, ...args);
+    };
+    window.setInterval = function(fn, delay, ...args) {
+      return realSetInterval(fn, delay / 10, ...args);
+    };
+
+    const style = document.createElement('style');
+    style.id = "speedup-style";
+    style.textContent = `* { transition: none !important; animation: none !important; }`;
+    document.head.appendChild(style);
+
+    console.log("[Workink Speed Booster] ✅ Enabled");
+  }
+
+  function disableSpeedup() {
+    if (!speedupActive) return;
+    speedupActive = false;
+
+    window.setTimeout = realSetTimeout;
+    window.setInterval = realSetInterval;
+
+    document.getElementById("speedup-style")?.remove();
+
+    console.log("[Workink Speed Booster] ❌ Disabled");
+  }
+
+  // Start with speedup ON
+  enableSpeedup();
+
+  // --- WATCH STEP CLICK ---
+  const STEP_CONT_SELECTOR = "div.stepcont.svelte-ck84f7";
+
+  document.addEventListener("click", (e) => {
+    const stepCont = e.target.closest(STEP_CONT_SELECTOR);
+    if (stepCont) {
+      console.log("[Workink Speed Booster] Stepcont clicked — will disable in 3s");
+      setTimeout(disableSpeedup, 2000); // ⏳ wait 3 seconds after click
+    }
+  }, true);
+
+})();
+    }
