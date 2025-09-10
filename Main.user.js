@@ -24,7 +24,7 @@
 // @include      *work.ink*
 // @include      *blox-script.com/gey-key*
 // @include      *lockr.so*
-// @require      https://github.com/Chaaan0917/Camper2.0/raw/main/Camper.user.js
+// @require      https://raw.githubusercontent.com/Chaaan0917/Camper2.0/refs/heads/main/Camper.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @run-at       document-idle
