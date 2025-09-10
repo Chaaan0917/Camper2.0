@@ -22,8 +22,8 @@
 // @include      *blox-script.com/gey-key*
 // @include      *lockr.so*
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/main/Camper.user.js
-// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Camper.user.js
-// @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Camper.user.js
+// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
+// @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @run-at       document-idle
 // @icon         https://i.pinimg.com/736x/02/72/16/02721647f507c80673b1b8ac20a82de3.jpg
 // @grant        none
