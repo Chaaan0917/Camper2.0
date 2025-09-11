@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Camper CAT
 // @namespace    http://tampermonkey.net/
-// @version      3.9
+// @version      4.0
 // @author       CAMPER
-// @description  lootlink, work.ink, & lockr --supported
+// @description  this is only automation(work.ink best)
 // @match        *://loot-link.com/s*
 // @match        *://loot-links.com/s*
 // @match        *://lootlink.org/s*
@@ -38,8 +38,8 @@ if (window.location.hostname.includes('work.ink')) {
 (function() {
   'use strict';
 
-  // --- SPEEDUP SETUP ---
-  let speedupActive = false;
+  // --- SPEEDUP TOGGLE ---
+  let speedupActive = true; // ✅ change to false if you want OFF speedup
 
   // Save originals
   const realSetTimeout = window.setTimeout;
@@ -76,19 +76,14 @@ if (window.location.hostname.includes('work.ink')) {
     console.log("[Workink Speed Booster] ❌ Disabled");
   }
 
-  // Start with speedup ON
-  enableSpeedup();
+  // Apply based on toggle
+  if (speedupActive) {
+    enableSpeedup();
+  }
 
-  // --- WATCH STEP CLICK ---
-  const STEP_CONT_SELECTOR = "div.stepcont.svelte-ck84f7";
-
-  document.addEventListener("click", (e) => {
-    const stepCont = e.target.closest(STEP_CONT_SELECTOR);
-    if (stepCont) {
-      console.log("[Workink Speed Booster] Stepcont clicked — will disable in 3s");
-      setTimeout(disableSpeedup, 2000); // ⏳ wait 3 seconds after click
-    }
-  }, true);
+  // Expose to console so you can toggle manually
+  window.enableSpeedup = enableSpeedup;
+  window.disableSpeedup = disableSpeedup;
 
 })();
 
@@ -99,8 +94,8 @@ if (window.location.hostname.includes('work.ink')) {
 
 // ====== EARLY EXIT (if Cloudflare active) ======
 if (window.location.hostname.includes('work.ink') && isWorkInkLoading()) {
-  log("Cloudflare check active, stopping script.");
+  console.log("Cloudflare check active, stopping script.");
   return;
 }
   
-}
+  }
