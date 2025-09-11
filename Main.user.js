@@ -90,6 +90,6 @@ if (window.location.hostname.includes('work.ink')) {
     }
   }, true);
 
-})():
+})();
   
 }
