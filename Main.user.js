@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper CAT
 // @namespace    http://tampermonkey.net/
-// @version      3.8
+// @version      3.9
 // @author       CAMPER
 // @description  lootlink, work.ink, & lockr --supported
 // @match        *://loot-link.com/s*
@@ -24,7 +24,7 @@
 // @include      *work.ink*
 // @include      *blox-script.com/gey-key*
 // @include      *lockr.so*
-// @require      
+// @require      https://raw.githubusercontent.com/Chaaan0917/Camper2.0/refs/heads/main/Camper.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @run-at       document-idle
