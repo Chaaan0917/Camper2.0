@@ -24,7 +24,7 @@
 // @include      *work.ink*
 // @include      *blox-script.com/gey-key*
 // @include      *lockr.so*
-// @require      https://raw.githubusercontent.com/Chaaan0917/Camper2.0/refs/heads/main/Camper.user.js
+// @require      
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Main.user.js
 // @run-at       document-idle
@@ -90,5 +90,14 @@ if (window.location.hostname.includes('work.ink')) {
     }
   }, true);
 
-})();
+})():
+  function isWorkInkLoading() {
+  return /Checking your browser\. This takes about 5 seconds\./i.test(document.body?.innerText || '');
+}
+
+// ====== EARLY EXIT (if Cloudflare active) ======
+if (window.location.hostname.includes('work.ink') && isWorkInkLoading()) {
+  log("Cloudflare check active, stopping script.");
+  return;
+}
     }
