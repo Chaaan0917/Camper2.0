@@ -91,13 +91,5 @@ if (window.location.hostname.includes('work.ink')) {
   }, true);
 
 })():
-  function isWorkInkLoading() {
-  return /Checking your browser\. This takes about 5 seconds\./i.test(document.body?.innerText || '');
+  
 }
-
-// ====== EARLY EXIT (if Cloudflare active) ======
-if (window.location.hostname.includes('work.ink') && isWorkInkLoading()) {
-  log("Cloudflare check active, stopping script.");
-  return;
-}
-    }
