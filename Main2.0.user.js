@@ -7,7 +7,7 @@
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @include      *work.ink*
-// @require      
+// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/work.ink.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Main2.0.user.js
 // @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Main2.0.user.js
 // @run-at       document-idle
