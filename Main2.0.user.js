@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @author       CAMPER
-// @description  autmate work.ink (not the best) 
+// @description  autmate work.ink (not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @include      *work.ink*
@@ -68,5 +68,3 @@ if (window.location.hostname.includes('work.ink') && isWorkInkLoading()) {
   console.log("Cloudflare check active, stopping script.");
   return;
 }
-  
-  }
