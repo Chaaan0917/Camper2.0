@@ -3,13 +3,13 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @author       CAMPER
-// @description  this is only automation(work.ink best)
+// @description  autmate work.ink (not the best) 
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @include      *work.ink*
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/work.ink.user.js
 // @run-at       document-idle
-// @icon         https://i.pinimg.com/736x/02/72/16/02721647f507c80673b1b8ac20a82de3.jpg
+// @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
 // ==/UserScript==
 
