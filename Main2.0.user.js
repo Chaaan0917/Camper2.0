@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Camper CAT
+// @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
 // @version      4.0
 // @author       CAMPER
