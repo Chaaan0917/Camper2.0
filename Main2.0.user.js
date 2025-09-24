@@ -8,8 +8,6 @@
 // @match        *://*.work.ink/*
 // @include      *work.ink*
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/work.ink.user.js
-// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/main/Main2.0.user.js
-// @downloadURL  https://github.com/Chaaan0917/Camper2.0/raw/main/Main2.0.user.js
 // @run-at       document-idle
 // @icon         https://i.pinimg.com/736x/02/72/16/02721647f507c80673b1b8ac20a82de3.jpg
 // @grant        none
@@ -59,3 +57,16 @@
 
     console.log("[Timer Speedup] Loaded. Press Ctrl+Shift+S to toggle speed.");
 })();
+
+
+  function isWorkInkLoading() {
+  return /Checking your browser\. This takes about 5 seconds\./i.test(document.body?.innerText || '');
+}
+
+// ====== EARLY EXIT (if Cloudflare active) ======
+if (window.location.hostname.includes('work.ink') && isWorkInkLoading()) {
+  console.log("Cloudflare check active, stopping script.");
+  return;
+}
+  
+  }
