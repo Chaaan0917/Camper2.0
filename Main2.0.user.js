@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @author       CAMPER
-// @description  autmate work.ink (not the best)
+// @description  automate work.ink (not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @include      *work.ink*
@@ -13,58 +13,64 @@
 // @grant        none
 // ==/UserScript==
 
-(() => {
+(function() {
     'use strict';
 
-    let speedEnabled = true; //set false to turn it off
-    const SPEED_FACTOR = 5; // 2x, 5x, etc. (set the speed)
-
-    // Wrap setTimeout
-    const originalSetTimeout = window.setTimeout;
-    window.setTimeout = function(fn, delay, ...args) {
-        if (speedEnabled && typeof delay === "number") {
-            delay = delay / SPEED_FACTOR;
-        }
-        return originalSetTimeout(fn, delay, ...args);
-    };
-
-    // Wrap setInterval
-    const originalSetInterval = window.setInterval;
-    window.setInterval = function(fn, delay, ...args) {
-        if (speedEnabled && typeof delay === "number") {
-            delay = delay / SPEED_FACTOR;
-        }
-        return originalSetInterval(fn, delay, ...args);
-    };
-
-    // Wrap requestAnimationFrame (optional: can speed up frame loops)
-    const originalRAF = window.requestAnimationFrame;
-    window.requestAnimationFrame = function(callback) {
-        if (speedEnabled) {
-            return originalRAF(callback); // we cannot scale frame rate directly
-        }
-        return originalRAF(callback);
-    };
-
-    function toggleSpeed() {
-        speedEnabled = !speedEnabled;
-        console.log("[Timer Speedup] " + (speedEnabled ? "Enabled x" + SPEED_FACTOR : "Disabled"));
+    // ====== CLOUDflare CHECK ======
+    function isWorkInkLoading() {
+        return /Checking your browser\. This takes about 5 seconds\./i.test(document.body?.innerText || '');
     }
 
-    document.addEventListener('keydown', e => {
-        if (e.ctrlKey && e.shiftKey && e.code === 'KeyS') toggleSpeed();
-    });
+    // Poll until Cloudflare check is done
+    if (isWorkInkLoading()) {
+        console.log("[Cloudflare] Waiting for browser check...");
+        const interval = setInterval(() => {
+            if (!isWorkInkLoading()) {
+                clearInterval(interval);
+                console.log("[Cloudflare] Check complete, resuming script.");
+                runSpeedup();
+            }
+        }, 1000);
+        return; // exit early until check passes
+    } else {
+        runSpeedup(); // run immediately if no check
+    }
 
-    console.log("[Timer Speedup] Loaded. Press Ctrl+Shift+S to toggle speed.");
+    // ====== SPEEDUP CODE ======
+    function runSpeedup() {
+        let speedEnabled = true; // set false to turn it off
+        const SPEED_FACTOR = 5; // 2x, 5x, etc.
+
+        // Wrap setTimeout
+        const originalSetTimeout = window.setTimeout;
+        window.setTimeout = function(fn, delay, ...args) {
+            if (speedEnabled && typeof delay === "number") delay /= SPEED_FACTOR;
+            return originalSetTimeout(fn, delay, ...args);
+        };
+
+        // Wrap setInterval
+        const originalSetInterval = window.setInterval;
+        window.setInterval = function(fn, delay, ...args) {
+            if (speedEnabled && typeof delay === "number") delay /= SPEED_FACTOR;
+            return originalSetInterval(fn, delay, ...args);
+        };
+
+        // Wrap requestAnimationFrame (optional)
+        const originalRAF = window.requestAnimationFrame;
+        window.requestAnimationFrame = function(callback) {
+            return originalRAF(callback); // cannot scale frame rate directly
+        };
+
+        function toggleSpeed() {
+            speedEnabled = !speedEnabled;
+            console.log("[Timer Speedup] " + (speedEnabled ? "Enabled x" + SPEED_FACTOR : "Disabled"));
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && e.shiftKey && e.code === 'KeyS') toggleSpeed();
+        });
+
+        console.log("[Timer Speedup] Loaded. Press Ctrl+Shift+S to toggle speed.");
+    }
+
 })();
-
-
-  function isWorkInkLoading() {
-  return /Checking your browser\. This takes about 5 seconds\./i.test(document.body?.innerText || '');
-}
-
-// ====== EARLY EXIT (if Cloudflare active) ======
-if (window.location.hostname.includes('work.ink') && isWorkInkLoading()) {
-  console.log("Cloudflare check active, stopping script.");
-  return;
-}
