@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Camper Rinku Cat Test
+// @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
 // @author       Camper
 // @version      1.0
