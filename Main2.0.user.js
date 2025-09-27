@@ -1,20 +1,37 @@
 // ==UserScript==
-// @name         Camper Wonk.Ink Cat
+// @name         Camper Wonk.Ink Cat (Auto Volcano Detect)
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.4
 // @author       CAMPER
-// @description  automate work.ink (not the best)
+// @description  Automate work.ink with Cloudflare check + Volcano auto detect
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
-// @include      *work.ink*
+// @match        *://key.volcano.wtf/*
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/work.ink.user.js
-// @run-at       document-idle
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
+
+    // --- URLs where speedup should be disabled ---
+    const disableSpeedupUrls = [
+        "https://work.ink/22hr/42rk6hcq",
+        "https://work.ink/22hr/ito4wckq",
+        "https://work.ink/22hr/pzarvhq1"
+    ];
+
+    // Decide speedup default
+    let speedEnabled = true;
+    if (location.hostname.includes("key.volcano.wtf")) {
+        speedEnabled = false;
+        console.log("[Work.ink Auto] Disabled speedup (volcano).");
+    }
+    if (disableSpeedupUrls.some(u => location.href.startsWith(u))) {
+        speedEnabled = false;
+        console.log("[Work.ink Auto] Disabled speedup (blocked work.ink URL).");
+    }
 
     // ====== CLOUDflare CHECK ======
     function isWorkInkLoading() {
@@ -31,15 +48,18 @@
                 runSpeedup();
             }
         }, 1000);
-        return; // exit early until check passes
     } else {
         runSpeedup(); // run immediately if no check
     }
 
     // ====== SPEEDUP CODE ======
     function runSpeedup() {
-        let speedEnabled = true; // set false to turn it off
         const SPEED_FACTOR = 5; // 2x, 5x, etc.
+
+        if (!speedEnabled) {
+            console.log("[Timer Speedup] Disabled for this page.");
+            return;
+        }
 
         // Wrap setTimeout
         const originalSetTimeout = window.setTimeout;
@@ -53,12 +73,6 @@
         window.setInterval = function(fn, delay, ...args) {
             if (speedEnabled && typeof delay === "number") delay /= SPEED_FACTOR;
             return originalSetInterval(fn, delay, ...args);
-        };
-
-        // Wrap requestAnimationFrame (optional)
-        const originalRAF = window.requestAnimationFrame;
-        window.requestAnimationFrame = function(callback) {
-            return originalRAF(callback); // cannot scale frame rate directly
         };
 
         function toggleSpeed() {
