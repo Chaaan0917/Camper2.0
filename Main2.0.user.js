@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Camper Wonk.Ink Cat (Auto Volcano Detect)
+// @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.2
 // @author       CAMPER
-// @description  Automate work.ink with Cloudflare check + Volcano auto detect
+// @description  Automate Work.ink(not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @match        *://key.volcano.wtf/*
