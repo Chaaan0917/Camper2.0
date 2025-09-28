@@ -1,10 +1,13 @@
 // ==UserScript==
 // @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
+// @author       Camper
 // @version      1.0
 // @description  Step 0/2 click only after countdown (#count), Cloudflare safe
 // @author       Camper
+// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/rinku.user.js
 // @match        *://*/*
+// @icon         https://www.meme-arsenal.com/memes/5d5de8ce95563be209d54774b3c56505.jpg
 // @grant        none
 // ==/UserScript==
 
