@@ -2,7 +2,7 @@
 // @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
 // @author       Camper
-// @version      1.3
+// @version      1.4
 // @description  Automate rinku(not bypass)
 // @match        *://*/*
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.1.user.js
@@ -32,7 +32,7 @@
             console.log("[Camper] No verifying text found → loading script...");
 
             const script = document.createElement("script");
-            script.src = "https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/rinkyuu.user.js";
+            script.src = "https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/rinkyu.user.js";
             script.onload = () => console.log("[Camper] Rinku script loaded.");
             document.head.appendChild(script);
         }
