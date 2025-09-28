@@ -8,6 +8,7 @@
 // @match        *://*.work.ink/*
 // @match        *://key.volcano.wtf/*
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/work.ink.user.js
+// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
 // ==/UserScript==
