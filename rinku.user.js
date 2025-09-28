@@ -29,7 +29,9 @@
         }
 
         waitForCloudflareToFinish(() => {
+            let stableButtonClicked = false;
             const clickedSteps = new WeakSet();
+            let articleClicked = false;
 
             function simulateClick(element) {
                 if (!element) return;
@@ -37,14 +39,29 @@
                 element.dispatchEvent(event);
             }
 
+            // Stable button
+            function clickStableButton() {
+                if (!stableButtonClicked) {
+                    const btn = document.querySelector('button.btn');
+                    if (btn) {
+                        simulateClick(btn);
+                        stableButtonClicked = true;
+                        console.log('[Camper] Stable button clicked!');
+                    }
+                }
+            }
+
+            // Step buttons (use #count element to wait)
             function clickStepButtonIfReady(btn) {
                 if (clickedSteps.has(btn)) return; // already clicked
-                if (btn.disabled || btn.offsetParent === null) return; // not visible or disabled
+                if (btn.disabled) return;
 
                 const counterEl = document.querySelector('#count');
                 if (counterEl) {
                     const countdown = parseInt(counterEl.textContent.trim(), 10);
-                    if (!isNaN(countdown) && countdown > 0) return; // still waiting
+                    if (!isNaN(countdown) && countdown > 0) {
+                        return; // still waiting
+                    }
                 }
 
                 simulateClick(btn);
@@ -60,15 +77,54 @@
                 });
             }
 
-            // Observe DOM changes dynamically
-            const observer = new MutationObserver(scanStepButtons);
+            // Article click
+            function clickOneArticle() {
+                if (articleClicked) return;
+
+                const prompt = Array.from(document.querySelectorAll('div, span, p'))
+                    .some(el => el.textContent.includes(
+                        "If Any Article Redirecting The Page Then Right Click On Mouse To Open It In New Tab"
+                    ));
+                if (!prompt) return;
+
+                const links = Array.from(document.querySelectorAll('a[href]'))
+                    .filter(el => el.href && !el.href.startsWith("javascript:"));
+
+                if (links.length > 0) {
+                    const article = links[0];
+                    article.removeAttribute("target");
+
+                    const oldOpen = window.open;
+                    window.open = () => null;
+
+                    simulateClick(article);
+
+                    setTimeout(() => { window.open = oldOpen; }, 100);
+
+                    articleClicked = true;
+                    console.log('[Camper] Clicked ONE article (same tab).');
+                }
+            }
+
+            // Observe DOM changes
+            const observer = new MutationObserver(() => {
+                clickStableButton();
+                scanStepButtons();
+                clickOneArticle();
+            });
             observer.observe(document.body, { childList: true, subtree: true });
 
-            // Initial + continuous loop
+            // Initial run + continuous loop
+            clickStableButton();
             scanStepButtons();
-            const interval = setInterval(scanStepButtons, 500);
+            clickOneArticle();
 
-            console.log('[Camper] Script initialized: Cloudflare-safe + Step 0/2 only.');
+            setInterval(() => {
+                scanStepButtons();
+            }, 500);
+
+            console.log('[Camper] Script initialized with real #count countdown support.');
         });
     });
 })();
+
