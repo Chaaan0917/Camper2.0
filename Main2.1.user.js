@@ -5,6 +5,7 @@
 // @version      1.3
 // @description  Automate rinku(not bypass)
 // @match        *://*/*
+// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.1.user.js
 // @icon         https://tse2.mm.bing.net/th/id/OIP.L5yCQIs4iE6WKHXZs8-j1QHaDt?rs=1&pid=ImgDetMain&o=7&rm=3
 // @grant        none
 // @run-at       document-end
