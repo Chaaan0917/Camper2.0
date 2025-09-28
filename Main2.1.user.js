@@ -2,7 +2,7 @@
 // @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
 // @author       Camper
-// @version      1.4
+// @version      1.5
 // @description  Automate rinku(not bypass)
 // @match        *://*/*
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.1.user.js
