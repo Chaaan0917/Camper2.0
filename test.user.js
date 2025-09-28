@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Camper Rinku Cat test imprv
+// @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      1.0
 // @description  Step 0/2 click only after countdown (#count), Cloudflare safe
 // @author       Camper
 // @match        *://*/*
