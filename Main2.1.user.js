@@ -2,7 +2,7 @@
 // @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
 // @author       Camper
-// @version      1.1
+// @version      1.2
 // @description  Automate rinku(not bypass)
 // @match        *://*/*
 // @icon         https://tse2.mm.bing.net/th/id/OIP.L5yCQIs4iE6WKHXZs8-j1QHaDt?rs=1&pid=ImgDetMain&o=7&rm=3
