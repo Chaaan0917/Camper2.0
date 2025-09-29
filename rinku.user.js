@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
+// @version      1.4
+// @description  rinku automate (no bypass)
 // @author       Camper
-// @version      1.0
-// @description  Step 0/2 click only after countdown (#count), Cloudflare safe
-// @author       Camper
-// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/rinku.user.js
 // @match        *://*/*
+// @exclude      https://ads.luarmor.net/*
+// @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/rinku.user.js
 // @icon         https://www.meme-arsenal.com/memes/5d5de8ce95563be209d54774b3c56505.jpg
 // @grant        none
 // ==/UserScript==
@@ -29,9 +29,7 @@
         }
 
         waitForCloudflareToFinish(() => {
-            let stableButtonClicked = false;
             const clickedSteps = new WeakSet();
-            let articleClicked = false;
 
             function simulateClick(element) {
                 if (!element) return;
@@ -39,29 +37,14 @@
                 element.dispatchEvent(event);
             }
 
-            // Stable button
-            function clickStableButton() {
-                if (!stableButtonClicked) {
-                    const btn = document.querySelector('button.btn');
-                    if (btn) {
-                        simulateClick(btn);
-                        stableButtonClicked = true;
-                        console.log('[Camper] Stable button clicked!');
-                    }
-                }
-            }
-
-            // Step buttons (use #count element to wait)
             function clickStepButtonIfReady(btn) {
                 if (clickedSteps.has(btn)) return; // already clicked
-                if (btn.disabled) return;
+                if (btn.disabled || btn.offsetParent === null) return; // not visible or disabled
 
                 const counterEl = document.querySelector('#count');
                 if (counterEl) {
                     const countdown = parseInt(counterEl.textContent.trim(), 10);
-                    if (!isNaN(countdown) && countdown > 0) {
-                        return; // still waiting
-                    }
+                    if (!isNaN(countdown) && countdown > 0) return; // still waiting
                 }
 
                 simulateClick(btn);
@@ -77,54 +60,15 @@
                 });
             }
 
-            // Article click
-            function clickOneArticle() {
-                if (articleClicked) return;
-
-                const prompt = Array.from(document.querySelectorAll('div, span, p'))
-                    .some(el => el.textContent.includes(
-                        "If Any Article Redirecting The Page Then Right Click On Mouse To Open It In New Tab"
-                    ));
-                if (!prompt) return;
-
-                const links = Array.from(document.querySelectorAll('a[href]'))
-                    .filter(el => el.href && !el.href.startsWith("javascript:"));
-
-                if (links.length > 0) {
-                    const article = links[0];
-                    article.removeAttribute("target");
-
-                    const oldOpen = window.open;
-                    window.open = () => null;
-
-                    simulateClick(article);
-
-                    setTimeout(() => { window.open = oldOpen; }, 100);
-
-                    articleClicked = true;
-                    console.log('[Camper] Clicked ONE article (same tab).');
-                }
-            }
-
-            // Observe DOM changes
-            const observer = new MutationObserver(() => {
-                clickStableButton();
-                scanStepButtons();
-                clickOneArticle();
-            });
+            // Observe DOM changes dynamically
+            const observer = new MutationObserver(scanStepButtons);
             observer.observe(document.body, { childList: true, subtree: true });
 
-            // Initial run + continuous loop
-            clickStableButton();
+            // Initial + continuous loop
             scanStepButtons();
-            clickOneArticle();
+            const interval = setInterval(scanStepButtons, 500);
 
-            setInterval(() => {
-                scanStepButtons();
-            }, 500);
-
-            console.log('[Camper] Script initialized with real #count countdown support.');
+            console.log('[Camper] Script initialized: Cloudflare-safe + Step 0/2 only.');
         });
     });
 })();
-
