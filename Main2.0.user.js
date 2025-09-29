@@ -1,13 +1,17 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @author       CAMPER
 // @description  Automate Work.ink(not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
+// @match        *://key.thanhub.com/*
 // @match        *://key.volcano.wtf/*
-// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/work.ink.user.js
+// @include      *key.thanhub.com/*
+// @include      *work.ink*
+// @include      *key.volcano.wtf/*
+// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/workink.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
