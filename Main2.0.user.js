@@ -1,16 +1,28 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @author       CAMPER
 // @description  Automate Work.ink(not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @match        *://key.thanhub.com/*
 // @match        *://key.volcano.wtf/*
+// @match        *://therealasu.pythonanywhere.com/*
+// @match        *://phantomfluxkey.vercel.app/*
+// @match        *://pixel-pulse.in/*
+// @match        *://newkhabar24.com/*
+// @match        *://biharkhabar.net/*
+// @match        *://earnbox.in
 // @include      *key.thanhub.com/*
 // @include      *work.ink*
 // @include      *key.volcano.wtf/*
+// @include      *therealasu.pythonanywhere.com/*
+// @include      *phantomfluxkey.vercel.app/*
+// @include      *:pixel-pulse.in/*
+// @include      *:newkhabar24.com/*
+// @include      *:biharkhabar.net/*
+// @include      *:earnbox.in
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/workink.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
