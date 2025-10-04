@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @author       CAMPER
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
