@@ -6,7 +6,7 @@
 // @author       CAMPER
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
-// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/workinktest.user.js
+// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/yuji.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
 // ==/UserScript==
