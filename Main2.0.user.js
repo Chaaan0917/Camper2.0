@@ -1,28 +1,20 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.5
 // @author       CAMPER
-// @description  Automate Work.ink(not the best)
+// @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @match        *://key.thanhub.com/*
 // @match        *://key.volcano.wtf/*
 // @match        *://therealasu.pythonanywhere.com/*
-// @match        *://phantomfluxkey.vercel.app/*
-// @match        *://pixel-pulse.in/*
-// @match        *://newkhabar24.com/*
-// @match        *://biharkhabar.net/*
-// @match        *://earnbox.in
+// @match        https://blox-script.com/*
 // @include      *key.thanhub.com/*
-// @include      *work.ink*
+// @include      *work.ink/*
 // @include      *key.volcano.wtf/*
 // @include      *therealasu.pythonanywhere.com/*
-// @include      *phantomfluxkey.vercel.app/*
-// @include      *:pixel-pulse.in/*
-// @include      *:newkhabar24.com/*
-// @include      *:biharkhabar.net/*
-// @include      *:earnbox.in
+// @include      *blox-script.com/*
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/workink.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
@@ -32,7 +24,12 @@
 (function() {
     'use strict';
 
-    // --- URLs where speedup should be disabled ---
+    if (!location.hostname.includes("work.ink")) {
+        console.log("[Work.ink Auto] Skipping script, not on work.ink.");
+        return;
+    }
+
+    // --- volcano work.inks ---
     const disableSpeedupUrls = [
         "https://work.ink/22hr/42rk6hcq",
         "https://work.ink/22hr/ito4wckq",
@@ -41,10 +38,6 @@
 
     // Decide speedup default
     let speedEnabled = true;
-    if (location.hostname.includes("key.volcano.wtf")) {
-        speedEnabled = false;
-        console.log("[Work.ink Auto] Disabled speedup (volcano).");
-    }
     if (disableSpeedupUrls.some(u => location.href.startsWith(u))) {
         speedEnabled = false;
         console.log("[Work.ink Auto] Disabled speedup (blocked work.ink URL).");
@@ -66,10 +59,10 @@
             }
         }, 1000);
     } else {
-        runSpeedup(); // run immediately if no check
+        runSpeedup(); 
     }
 
-    // ====== SPEEDUP CODE ======
+    // ================================================================ SPEEDUP CODE ==========================================
     function runSpeedup() {
         const SPEED_FACTOR = 20; // 2x, 5x, etc.
 
@@ -78,14 +71,12 @@
             return;
         }
 
-        // Wrap setTimeout
         const originalSetTimeout = window.setTimeout;
         window.setTimeout = function(fn, delay, ...args) {
             if (speedEnabled && typeof delay === "number") delay /= SPEED_FACTOR;
             return originalSetTimeout(fn, delay, ...args);
         };
 
-        // Wrap setInterval
         const originalSetInterval = window.setInterval;
         window.setInterval = function(fn, delay, ...args) {
             if (speedEnabled && typeof delay === "number") delay /= SPEED_FACTOR;
