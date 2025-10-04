@@ -9,7 +9,7 @@
 // @match        *://key.thanhub.com/*
 // @match        *://key.volcano.wtf/*
 // @match        *://therealasu.pythonanywhere.com/*
-// @match        https://blox-script.com/*
+// @match        *://blox-script.com/*
 // @include      *key.thanhub.com/*
 // @include      *work.ink/*
 // @include      *key.volcano.wtf/*
