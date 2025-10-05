@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Rinku Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.5
 // @description  rinku automate (no bypass)
 // @author       Camper
 // @match        *://*/*
