@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      1.9
+// @version      2.0
 // @author       CAMPER
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
@@ -64,7 +64,7 @@
 
     // ================================================================ SPEEDUP CODE ==========================================
     function runSpeedup() {
-        const SPEED_FACTOR = 20; // 2x, 5x, etc.
+        const SPEED_FACTOR = 5; // 2x, 5x, etc.
 
         if (!speedEnabled) {
             console.log("[Timer Speedup] Disabled for this page.");
