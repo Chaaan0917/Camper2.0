@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      2.0
+// @version      2.1
 // @author       CAMPER
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
@@ -10,12 +10,21 @@
 // @match        *://key.volcano.wtf/*
 // @match        *://therealasu.pythonanywhere.com/*
 // @match        *://blox-script.com/*
+// @match        *://loot-link.com/s?*
+// @match        *://loot-links.com/s?*
+// @match        *://lootlink.org/s?*
+// @match        *://lootlinks.co/s?*
+// @match        *://lootdest.info/s?*
+// @match        *://lootdest.org/s?*
+// @match        *://lootdest.com/s?*
+// @match        *://links-loot.com/s?*
+// @match        *://linksloot.net/s?*
 // @include      *key.thanhub.com/*
 // @include      *work.ink/*
 // @include      *key.volcano.wtf/*
 // @include      *therealasu.pythonanywhere.com/*
 // @include      *blox-script.com/*
-// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/workink.user.js
+// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
