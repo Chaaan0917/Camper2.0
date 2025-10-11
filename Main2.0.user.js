@@ -19,11 +19,17 @@
 // @match        *://lootdest.com/s?*
 // @match        *://links-loot.com/s?*
 // @match        *://linksloot.net/s?*
+// @match        *://rekonise.com/*
+// @match        *://link-unlock*
+// @match        *://linkvertise.com/*/*
 // @include      *key.thanhub.com/*
 // @include      *work.ink/*
 // @include      *key.volcano.wtf/*
 // @include      *therealasu.pythonanywhere.com/*
 // @include      *blox-script.com/*
+// @grant        GM_xmlhttpRequest
+// @grant        GM.xmlHttpRequest
+// @connect      trw.lat
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
