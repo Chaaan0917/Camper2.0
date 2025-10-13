@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      2.3
+// @version      2.4
 // @author       CAMPER
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
@@ -22,14 +22,42 @@
 // @match        *://rekonise.com/*
 // @match        *://link-unlock*
 // @match        *://linkvertise.com/*/*
+// @match        *://socialwolvez.com/*
+// @match        *://scwz.me/*
+// @match        *://adfoc.us/*
+// @match        *://unlocknow.net/*
+// @match        *://sub2get.com/*
+// @match        *://sub4unlock.com/*
+// @match        *://sub2unlock.net/*
+// @match        *://sub2unlock.com/*
+// @match        *://mboost.me/*
+// @match        *://paste-drop.com/paste/*
+// @match        *://pastebin.com/*
+// @match        *://deltaios-executor.com/ads.html*
+// @match        *://rentry.co/*
+// @match        *://rekonise.com/*
+// @match        *://rkns.link/*
+// @match        *://bit.ly/*
+// @match        *://rb.gy/*
+// @match        *://is.gd/*
+// @match        *://rebrand.ly/*
+// @match        *://6x.work/*
+// @match        *://boost.ink/*
+// @match        *://booo.st/*
+// @match        *://bst.gg/*
+// @match        *://bst.wtf/*
+// @match        *://linkunlocker.com/*
+// @match        *://unlk.link/*
+// @match        *://pandadevelopment.net/getkey*
+// @grant        GM_xmlhttpRequest
+// @grant        GM.xmlHttpRequest
 // @include      *key.thanhub.com/*
 // @include      *work.ink/*
 // @include      *key.volcano.wtf/*
 // @include      *therealasu.pythonanywhere.com/*
 // @include      *blox-script.com/*
-// @grant        GM_xmlhttpRequest
-// @grant        GM.xmlHttpRequest
 // @connect      trw.lat
+// @connect      abysm.lat
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.user.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
