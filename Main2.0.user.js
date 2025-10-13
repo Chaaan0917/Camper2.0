@@ -20,7 +20,7 @@
 // @match        *://links-loot.com/s?*
 // @match        *://linksloot.net/s?*
 // @match        *://rekonise.com/*
-// @match        *://link-unlock*
+// @match        *://link-unlock/*
 // @match        *://linkvertise.com/*/*
 // @match        *://socialwolvez.com/*
 // @match        *://scwz.me/*
