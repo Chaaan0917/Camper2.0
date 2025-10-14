@@ -1,13 +1,12 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      2.4
+// @version      2.5
 // @author       CAMPER
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
 // @match        *://key.thanhub.com/*
-// @match        *://key.volcano.wtf/*
 // @match        *://therealasu.pythonanywhere.com/*
 // @match        *://blox-script.com/*
 // @match        *://loot-link.com/s?*
@@ -53,7 +52,6 @@
 // @grant        GM.xmlHttpRequest
 // @include      *key.thanhub.com/*
 // @include      *work.ink/*
-// @include      *key.volcano.wtf/*
 // @include      *therealasu.pythonanywhere.com/*
 // @include      *blox-script.com/*
 // @connect      trw.lat
