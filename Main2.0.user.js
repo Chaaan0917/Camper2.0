@@ -6,7 +6,7 @@
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
 // @match        *://*.work.ink/*
-// @match        https://key.volcano.wtf/*
+// @match        *://key.volcano.wtf/*
 // @match        *://key.thanhub.com/*
 // @match        *://therealasu.pythonanywhere.com/*
 // @match        *://blox-script.com/*
