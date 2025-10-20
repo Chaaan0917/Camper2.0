@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      2.5
+// @version      2.6
 // @author       CAMPER
 // @description  Automate Work.ink (not the best)
 // @match        *://work.ink/*
@@ -56,7 +56,7 @@
 // @include      *blox-script.com/*
 // @connect      trw.lat
 // @connect      abysm.lat
-// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.user.js
+// @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
