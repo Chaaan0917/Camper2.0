@@ -27,8 +27,6 @@
 // @match        *://sub2unlock.net/*
 // @match        *://sub2unlock.com/*
 // @match        *://mboost.me/*
-// @match        *://paste-drop.com/paste/*
-// @match        *://pastebin.com/*
 // @match        *://deltaios-executor.com/ads.html*
 // @match        *://rentry.co/*
 // @match        *://rekonise.com/*
