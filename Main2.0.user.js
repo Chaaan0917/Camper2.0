@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      3.0
+// @version      3.1
 // @author       CAMPER
 // @description  Work.ink bypasser
 // @match        *://work.ink/*
@@ -54,3 +54,5 @@
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // @grant        none
 // ==/UserScript==
+
+setDefaultCountdown(0);
