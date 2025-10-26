@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      3.1
+// @version      3.2
 // @author       CAMPER
 // @description  Work.ink bypasser
 // @match        *://work.ink/*
@@ -43,6 +43,7 @@
 // @match        *://linkunlocker.com/*
 // @match        *://unlk.link/*
 // @match        *://pandadevelopment.net/getkey*
+// @match        *://key.volcano.wtf/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM.xmlHttpRequest
 // @include      *work.ink/*
