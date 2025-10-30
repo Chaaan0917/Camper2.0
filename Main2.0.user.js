@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      3.3
+// @version      3.4
 // @author       CAMPER
 // @description  Work.ink bypass based on IHaxU
 // @match        *://work.ink/*
@@ -18,37 +18,11 @@
 // @match        *://rekonise.com/*
 // @match        *://link-unlock*
 // @match        *://linkvertise.com/*/*
-// @match        *://socialwolvez.com/*
-// @match        *://scwz.me/*
-// @match        *://adfoc.us/*
-// @match        *://unlocknow.net/*
-// @match        *://sub2get.com/*
-// @match        *://sub4unlock.com/*
-// @match        *://sub2unlock.net/*
-// @match        *://sub2unlock.com/*
-// @match        *://mboost.me/*
-// @match        *://deltaios-executor.com/ads.html*
-// @match        *://rentry.co/*
-// @match        *://rekonise.com/*
-// @match        *://rkns.link/*
-// @match        *://bit.ly/*
-// @match        *://rb.gy/*
-// @match        *://is.gd/*
-// @match        *://rebrand.ly/*
-// @match        *://6x.work/*
-// @match        *://boost.ink/*
-// @match        *://booo.st/*
-// @match        *://bst.gg/*
-// @match        *://bst.wtf/*
-// @match        *://linkunlocker.com/*
-// @match        *://unlk.link/*
-// @match        *://pandadevelopment.net/getkey*
 // @match        *://key.volcano.wtf/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM.xmlHttpRequest
 // @include      *work.ink/*
 // @connect      trw.lat
-// @connect      abysm.lat
 // @run-at       document-start
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
