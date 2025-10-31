@@ -30,4 +30,5 @@
 // @grant        none
 // ==/UserScript==
 
+// set 30 if you are doing luarmor
 setDefaultCountdown(0);
