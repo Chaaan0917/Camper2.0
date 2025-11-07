@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Camper Wonk.Ink Cat
 // @namespace    http://tampermonkey.net/
-// @version      3.6
+// @version      3.7
 // @author       CAMPER
 // @description  Work.ink bypass based on IHaxU
 // @match        *://work.ink/*
