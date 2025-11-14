@@ -56,5 +56,3 @@
 // @icon         https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg
 // ==/UserScript==
 
-// set 30 if you are doing luarmor
-setDefaultCountdown(0);
