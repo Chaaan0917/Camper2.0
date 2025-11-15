@@ -49,7 +49,7 @@
 // @match        *://rinku-pro.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM.xmlHttpRequest
-// @connect      vortex-bypass-two.vercel.app
+// @connect      afklol-api.vercel.app
 // @run-at       document-start
 // @require      https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Camper.js
 // @updateURL    https://github.com/Chaaan0917/Camper2.0/raw/refs/heads/main/Main2.0.user.js
