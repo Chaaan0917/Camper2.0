@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      4.1
 // @author       CAMPER
-// @description  Work.ink bypass based on IHaxU
+// @description  Work.ink bypass based on IHaxU and Dyrian
 // @match        *://work.ink/*
 // @match        *://rekonise.com/*
 // @match        *://link-unlock*
